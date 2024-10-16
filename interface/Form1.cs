@@ -16,11 +16,17 @@ namespace @interface
         public Form1()
         {
             InitializeComponent();
+            start();
+        }
+        gameform game = new gameform();
+        void start()
+        {
+            game.ShowDialog();
         }
     }
     interface Idbhandler
     {
-        void readall();
+        List<user> readall();
         void insertoneuser(user oneuser);
         void deleteoneuser(user oneuser);
         void deleteall();
