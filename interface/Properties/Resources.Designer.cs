@@ -59,35 +59,5 @@ namespace @interface.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pngtree_small_train_tracks_image_2240225_removebg_preview {
-            get {
-                object obj = ResourceManager.GetObject("pngtree-small-train-tracks-image_2240225-removebg-preview", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rails_removebg_preview {
-            get {
-                object obj = ResourceManager.GetObject("rails-removebg-preview", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rails_removebg_preview2 {
-            get {
-                object obj = ResourceManager.GetObject("rails-removebg-preview2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

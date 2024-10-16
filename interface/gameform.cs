@@ -22,11 +22,11 @@ namespace @interface
         Timer carmove = new Timer();
         Timer trainspawn = new Timer();
         Timer trainmove = new Timer();
-        
+        int points = 0;
         void start()
         {
             movecars();
-
+            movetrain();
             pictureBox5.Click += (s,e) =>
             {
                 if (pictureBox3.Height >= 130)
@@ -52,6 +52,12 @@ namespace @interface
                     if (pictureBox3.Height == 20)
                     {
                         item.Left += 2;
+                        if (item.Left >= this.Width && item.Enabled == true)
+                        {
+                            points++;
+                            item.Enabled = false;
+                            updatescore(points);
+                        }
                     }
                     else if(pictureBox3.Height == 130)
                     {
@@ -72,7 +78,7 @@ namespace @interface
         }
         void movetrain()
         {
-            trainspawn.Interval = 30000;
+            trainspawn.Interval = 3000;
             trainspawn.Start();
             trainmove.Interval = 10;
             trainmove.Start();
@@ -85,6 +91,19 @@ namespace @interface
                     if(train.Top <= this.Height)
                     {
                         train.Top += 4;
+                        foreach(PictureBox item in cars)
+                        {
+                            if (train.Bounds.IntersectsWith(item.Bounds))
+                            {
+                                MessageBox.Show("GAME OVER");
+                                this.Hide();
+                                
+                            }
+                        }
+                    }
+                    else if(train.Top > this.Height)
+                    {
+                        trainspawn.Interval = rng.Next(1000, 3000);
                     }
                 };
             };
@@ -111,6 +130,10 @@ namespace @interface
             train.BackColor = Color.WhiteSmoke;
             Controls.Add(train);
             train.BringToFront();
+        }
+        void updatescore(int points)
+        {
+            label1.Text = "POINTS: " + points; 
         }
     }
 }

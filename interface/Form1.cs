@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace @interface
 {
@@ -16,12 +15,14 @@ namespace @interface
         public Form1()
         {
             InitializeComponent();
-            start();
+            game.ShowDialog();
         }
         gameform game = new gameform();
+    }
+}
+        /*
         void start()
         {
-            game.ShowDialog();
         }
     }
     interface Idbhandler
@@ -139,3 +140,4 @@ namespace @interface
 
 
 }
+        */
