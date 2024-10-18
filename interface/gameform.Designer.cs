@@ -44,6 +44,7 @@ namespace @interface
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackgroundImage = global::@interface.Properties.Resources.rails_removebg_preview2;
             this.pictureBox4.Location = new System.Drawing.Point(357, -1);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(80, 451);

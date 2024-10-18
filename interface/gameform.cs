@@ -47,10 +47,11 @@ namespace @interface
             carmove.Interval = 25;
             carmove.Start();
             carmove.Tick += (s,e ) => {
-                foreach (PictureBox item in cars)
+                for (int i = 0; i < cars.Count; i++)
                 {
                     if (pictureBox3.Height == 20)
                     {
+                        if(cars[i].Right  )
                         item.Left += 2;
                         if (item.Left >= this.Width && item.Enabled == true)
                         {
@@ -66,7 +67,9 @@ namespace @interface
                             item.Left += 2;
                         }
                     }
+
                 }
+             
             if (cars.Last().Left >=10)
             {
                 makecar();

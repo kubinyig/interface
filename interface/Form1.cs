@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace @interface
 {
@@ -18,13 +19,28 @@ namespace @interface
             game.ShowDialog();
         }
         gameform game = new gameform();
+        dbhandler db = new dbhandler();
+        List<user> users;
+        public user selecteduser;
+       void start()
+        {
+            users = db.readall();
+            button1.Click += (s, e) =>
+            {
+                foreach(user item in users)
+                {
+                    if(textBox1.Text == item.username && textBox2.Text == item.password)
+                    {
+                        selecteduser = users[users.IndexOf(item)];
+                        
+                    }
+                }
+            };
+        } 
     }
 }
-        /*
-        void start()
-        {
-        }
-    }
+
+    
     interface Idbhandler
     {
         List<user> readall();
@@ -77,7 +93,7 @@ namespace @interface
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error kurva anyád kubinyi: " + e.Message);
+                MessageBox.Show("Error: " + e.Message);
             }
 
         }
@@ -139,5 +155,5 @@ namespace @interface
 
 
 
-}
-        */
+
+        
