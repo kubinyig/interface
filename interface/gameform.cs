@@ -51,9 +51,13 @@ namespace @interface
                 {
                     if (pictureBox3.Height == 20)
                     {
-                        if(cars[i].Right  )
-                        item.Left += 2;
-                        if (item.Left >= this.Width && item.Enabled == true)
+                        if(i == 0)
+                        {
+                        cars[i].Left += 2;
+                        }
+                        else if(cars[i - 1].Left - cars[i].Right >= 20)
+                        cars[i].Left += 2;
+                        if (cars[i].Left >= this.Width && cars[i].Enabled == true)
                         {
                             points++;
                             item.Enabled = false;
@@ -62,9 +66,9 @@ namespace @interface
                     }
                     else if(pictureBox3.Height == 130)
                     {
-                        if(item.Right >= pictureBox3.Left)
+                        if(cars[i].Right >= pictureBox3.Left)
                         {
-                            item.Left += 2;
+                            cars[i].Left += 2;
                         }
                     }
 
