@@ -55,18 +55,31 @@ namespace @interface
                         {
                         cars[i].Left += 2;
                         }
-                        else if(cars[i - 1].Left - cars[i].Right >= 20)
-                        cars[i].Left += 2;
+                        else if( cars[i - 1].Left - cars[i].Right >= 20)
+                        {
+                            cars[i].Left += 2;
+                        }
                         if (cars[i].Left >= this.Width && cars[i].Enabled == true)
                         {
                             points++;
-                            item.Enabled = false;
+                            cars[i].Enabled = false;
                             updatescore(points);
                         }
                     }
                     else if(pictureBox3.Height == 130)
                     {
-                        if(cars[i].Right >= pictureBox3.Left)
+                        if(i == 0)
+                        {
+                            if (cars[i].Right + 20 <= pictureBox3.Left) {
+                                cars[i].Left += 2;
+                            }
+
+                        }
+                        else if(cars[i].Right + 20 <= pictureBox3.Left && cars[i - 1].Left - cars[i].Right >= 20)
+                        {
+                            cars[i].Left += 2;
+                        }
+                            if (cars[i].Right >= pictureBox3.Left)
                         {
                             cars[i].Left += 2;
                         }
